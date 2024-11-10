@@ -1,0 +1,206 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        /* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #3a3a3a;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Main Content */
+section {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input, form textarea {
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #3a3a3a;
+}
+
+form button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #3a3a3a;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+/* Validation Styles */
+form input:invalid, form textarea:invalid {
+    border-color: #e74c3c; /* Red border for invalid inputs */
+}
+
+form input:invalid:focus, form textarea:invalid:focus {
+    border-color: #e74c3c;
+    background-color: #ffe6e6; /* Light red background for invalid inputs */
+}
+
+/* Placeholder Text Color */
+form input::placeholder, form textarea::placeholder {
+    color: #aaa;
+}
+
+/* Contact Info Section */
+#contact-info h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #3a3a3a;
+}
+
+#contact-info p {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #3a3a3a;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+    </style>
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const phonePattern = /^[0-9]{10}$/;
+
+            if (name === "") {
+                alert("Please enter your name.");
+                return false;
+            }
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+            if (!phonePattern.test(phone)) {
+                alert("Please enter a valid 10-digit phone number.");
+                return false;
+            }
+            if (subject === "") {
+                alert("Please enter a subject.");
+                return false;
+            }
+            if (message === "") {
+                alert("Please enter your message.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+
+    <section>
+        <p>If you have any questions or would like more information, please reach out to us!</p>
+    </section>
+
+    <section id="contact-form">
+        <form action="submit_form.php" method="post" onsubmit="return validateForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section id="contact-info">
+        <h2>Our Contact Information</h2>
+        <p>Email: info@example.com</p>
+        <p>Phone: +91 12345 67890</p>
+        <p>Address: 123 Cricket Avenue, Mumbai, India</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Top Cricket Grounds and Must-Visit Attractions in India</p>
+    </footer>
+    
+</body>
+</html>
